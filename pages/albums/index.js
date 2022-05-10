@@ -11,7 +11,7 @@ import { getAlbums } from "../../lib/api";
 import Link from "next/link";
 
 export async function getStaticProps() {
-    const albums = getAlbums();
+    const albums = await getAlbums();
     return {
         props: {
             albums
@@ -26,14 +26,14 @@ const AlbumsPage = ({ albums }) => {
             <Row>
             {albums.map((album, index) => {
                 const { featuredImage, title, slug } = album;
-                const { src,alt, width, height } = featuredImage;
+                const { src,altText, mediaDetails } = featuredImage.node;
                 return <Col xs="6" sm="4" key={index}>
 
                     <Image 
                         src={`/images/${src}`}
-                        alt={alt}
-                        width={width}
-                        height={height}
+                        alt={altText}
+                        width={mediaDetails.width}
+                        height={mediaDetails.height}
                     />
                     <Heading level="3">{title}</Heading>
                     <Paragraph><Link href={`/albums/${slug}`}><a>Read More</a></Link></Paragraph>

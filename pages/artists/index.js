@@ -8,6 +8,7 @@ import Link from "next/link"
 
 
 import { getArtists } from '../../lib/api'
+import Container from '../../components/Container'
 
 export async function getStaticProps() {
     const artists = await getArtists();
@@ -21,6 +22,7 @@ export async function getStaticProps() {
 
 const ArtistsLandingPage = ({ artists }) => {
     return <Layout>
+        <Container>
         <Heading level="1">Artists</Heading>
         <Row>
             {artists.map((artist, index) => {
@@ -44,6 +46,7 @@ const ArtistsLandingPage = ({ artists }) => {
                 </Col>
             })}
         </Row>
+        </Container>
     </Layout>
 }
 

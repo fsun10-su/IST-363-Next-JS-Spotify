@@ -26,4 +26,9 @@ $textAlignments: left, center, right;
             text-align: $textAlignment;
         }
     }
+    @for $i from 1 through 12 {
+        &.margin-bottom-#{$i} {
+            margin-bottom: $i + rem;
+        }
+    }
 }

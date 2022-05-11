@@ -10,7 +10,11 @@ const Col = ( {
     md, 
     lg, 
     textAlign = "left",
-    marginBottom } ) => {
+    marginBottom,
+    flexDirection = "column",
+    justifyContent = "flex-start",
+    alignItems = "flex-start"
+ } ) => {
     let colClasses = cx({
         col: true,
         [`col-xs-${xs}`] : xs,
@@ -18,6 +22,9 @@ const Col = ( {
         [`col-md-${md}`] : md,
         [`col-lg-${lg}`] : lg,
         [`text-align-${textAlign}`] : textAlign,
+        [`flex-direction-${flexDirection}`] : flexDirection,
+        [`justify-content-${justifyContent}`] : justifyContent,
+        [`align-items-${alignItems}`] : alignItems,
         [`margin-bottom-${marginBottom}`] : marginBottom
     })
     return <div className={colClasses}>{children}</div>

@@ -47,7 +47,7 @@ const SingleAlbumPage = ({ albumData }) => {
                     height={mediaDetails.height}
                 />
                 </Col>
-                <Col xs="12" md="9">
+                <Col xs="12" md="9" justifyContent="center">
                     <Heading level="1">{title}</Heading>
                     {/*<Heading level="2">{year}</Heading>*/}
                     {artistsToAlbums && artistsToAlbums.map((artist, index) => {

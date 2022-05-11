@@ -18,5 +18,7 @@
         margin: 0;
         padding: 1rem;
         border-bottom: 1px solid vars.$color-light-gray;
+        display: flex;
+        justify-content: space-between;
     }
 }

@@ -3,6 +3,9 @@
 
 $sizes: xs, sm, md, lg;
 $textAlignments: left, center, right;
+$flexDirectionsValues: row, row-reverse, column, column-reverse;
+$justifyContentValues: flex-start, flex-end, center, space-between, space-around, space-evenly;
+$alignItemsValues: flex-start,flex-end, center, stretch, baseline;
 
 .col {
     //background-color: orange;
@@ -26,9 +29,23 @@ $textAlignments: left, center, right;
             text-align: $textAlignment;
         }
     }
-    @for $i from 1 through 12 {
-        &.margin-bottom-#{$i} {
-            margin-bottom: $i + rem;
+    @each $value in $flexDirectionsValues {
+        &.flex-direction-#{$value} {
+            display: flex;
+            flex-direction: $value;
         }
     }
+    @each $value in $justifyContentValues {
+        &.justify-content-#{$value} {
+            display: flex;
+            justify-content: $value;
+        }
+    }
+    @each $value in $alignItemsValues {
+        &.align-items-#{$value} {
+            display: flex;
+            align-items: $value;
+        }
+    }
+    @include mixins.marginBottom();
 }

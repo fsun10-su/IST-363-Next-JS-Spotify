@@ -8,12 +8,12 @@ import Tracks from "./Tracks"
 
 
 
-const TracksByGenre = () => {
+const TracksByGenre = ({ items }) => {
 	// const [stateVariable, setStateFunction] = useState(initValue)
-	const tracks = getTracks();
+    const [activeGenre, setActiveGenre] = useState("Rock");
 	const genres = getGenres();
 
-    const [activeGenre, setActiveGenre] = useState("Rock");
+
     return <div>
         <h2>Top Songs by Genre</h2>
         <Tabs 
@@ -23,7 +23,7 @@ const TracksByGenre = () => {
          />
 
         <Tracks 
-            items = {filterTracksByGenre(tracks, activeGenre)}
+            items = {filterTracksByGenre(items, activeGenre)}
         />
     </div>
 }
